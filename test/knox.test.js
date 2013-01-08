@@ -32,16 +32,6 @@ var jsonFixture = __dirname + '/fixtures/user.json';
 module.exports = {
   'test .createClient() invalid': function(){
     assert.throws(
-      function () { knox.createClient({}); },
-      /aws "key" required/
-    );
-
-    assert.throws(
-      function () { knox.createClient({ key: 'foo' }); },
-      /aws "secret" required/
-    );
-
-    assert.throws(
       function () { knox.createClient({ key: 'foo', secret: 'bar' }); },
       /aws "bucket" required/
     );
